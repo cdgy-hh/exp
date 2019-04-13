@@ -10,7 +10,7 @@ import org.springframework.boot.context.embedded.MultipartConfigFactory;
 import org.springframework.boot.web.servlet.ServletComponentScan;
 import org.springframework.context.annotation.Bean;
 import org.springframework.transaction.annotation.EnableTransactionManagement;
-
+、、、、、、
 /**
  * springboot的启动类
  * @version 1.0
