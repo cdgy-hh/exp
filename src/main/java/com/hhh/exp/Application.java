@@ -46,6 +46,8 @@ public class Application implements CommandLineRunner {
         //Sets the directory location where files will be stored.
         //factory.setLocation("路径地址");
         return factory.createMultipartConfig(); 
+        
+        
     } 
 	
 	
