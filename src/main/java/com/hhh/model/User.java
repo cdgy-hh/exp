@@ -8,10 +8,13 @@ public class User {
 	public String sex;
 	public String phone;
 	public String password;
-	public int roleid;
-
+	public Role role;
 	
-	public User(int userid, int no, String name, String sex, String phone, String password, int roleid) {
+	public User() {
+		super();
+	}
+	
+	public User(int userid, int no, String name, String sex, String phone, String password, Role role) {
 		super();
 		this.userid = userid;
 		No = no;
@@ -19,9 +22,8 @@ public class User {
 		this.sex = sex;
 		this.phone = phone;
 		this.password = password;
-		this.roleid = roleid;
+		this.role = role;
 	}
-
 	public int getUserid() {
 		return userid;
 	}
@@ -58,16 +60,14 @@ public class User {
 	public void setPassword(String password) {
 		this.password = password;
 	}
-	public int getRoleid() {
-		return roleid;
+	public Role getRole() {
+		return role;
 	}
-	public void setRoleid(int roleid) {
-		this.roleid = roleid;
+	public void setRole(Role role) {
+		this.role = role;
 	}
-	@Override
-	public String toString() {
-		return "User [userid=" + userid + ", No=" + No + ", name=" + name + ", sex=" + sex + ", phone=" + phone
-				+ ", password=" + password + ", roleid=" + roleid + "]";
-	}
+
+	
+
 	
 }
