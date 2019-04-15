@@ -1,5 +1,7 @@
 package com.hhh.model;
 
+import com.hhh.model.Role;
+
 public class User {
 
 	public int userid;
