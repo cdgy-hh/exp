@@ -1,7 +1,13 @@
 package com.hhh.user;
 
-public class Login {
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
 
+@RestController
+@RequestMapping("/login/")
+public class Login {
+	@RequestMapping("admin")
+	
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
 
