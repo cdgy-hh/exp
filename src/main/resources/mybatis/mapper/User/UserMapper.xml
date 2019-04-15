@@ -3,7 +3,7 @@
 
 <mapper namespace="UserMybatis">
  
-	<select id="selectUserByName" parameterType="java.lang.String" resultType="com.hhh.model.User">
+	<select id="selectUserByName" parameterType="java.lang.String" resultType="com.hhh.user.User">
 		select
 		u.name,
 		u.password,
@@ -11,7 +11,7 @@
 		from user u
 		where u.name=#{name}	
 	</select>
-	<select id="selectRoleByRoleid" parameterType="java.lang.String" resultType="com.hhh.model.Role">
+	<select id="selectRoleByRoleid" parameterType="java.lang.String" resultType="com.hhh.user.Role">
 		select
 		r.roleid,
 		r.grade
