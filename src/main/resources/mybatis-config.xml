@@ -4,8 +4,6 @@
   "http://mybatis.org/dtd/mybatis-3-config.dtd">
 <configuration>
 	<mappers>
-		<mapper resource="mybatis/mapper/news/NewsQueryMapper.xml" />
-		<mapper resource="mybatis/mapper/news/NewsManageMapper.xml" />
 		<mapper resource="mybatis/mapper/User/UserMapper.xml" />
 	</mappers>
 </configuration>
