@@ -16,7 +16,8 @@ public class UserService{
 			Role role = userDao.selectRoleByRoleid(user.getRoleid());
 			user.setRole(role);
 		}
+		
 		return user;
 	}
-
+	
 }

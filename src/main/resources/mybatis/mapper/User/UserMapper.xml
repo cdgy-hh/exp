@@ -5,15 +5,20 @@
  
 	<select id="selectUserByName" parameterType="java.lang.String" resultType="com.hhh.exp.user.User">
 		select
+		u.userid,
+		u.No,
+		u.sex,
+		u.phone,
 		u.name,
 		u.password,
 		u.roleid
 		from user u
 		where u.name=#{name}	
 	</select>
-	<select id="selectRoleByRoleid" parameterType="java.lang.String" resultType="com.hhh.exp.user.Role">
+	<select id="selectRoleByRoleid" parameterType="int" resultType="com.hhh.exp.user.Role">
 		select
 		r.roleid,
+		r.type,
 		r.grade
 		from role r
 		where r.roleid=#{roleid}
