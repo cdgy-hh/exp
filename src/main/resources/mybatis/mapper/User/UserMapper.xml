@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="UserMybatis">
+ 
+	<select id="selectUserByName" parameterType="java.lang.String" rese ultType="com.hhh.model.User">
+		select
+		u.name,
+		u.password,
+		u.roleid
+		from user u
+		where u.name=#{name}	
+	</select>
+	<select id="selectRoleByRoleid" parameterType="java.lang.String" rese ultType="com.hhh.model.Role">
+		select
+		r.roleid,
+		r.grade
+		from role r
+		where r.roleid=#{roleid}
+	</select>
+</mapper>
