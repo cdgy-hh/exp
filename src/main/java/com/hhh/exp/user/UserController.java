@@ -30,6 +30,10 @@ public class UserController {
 			User user = userService.getUserByName(username);
 			if(user!=null) {
 				if(password.equals(user.getPassword())) {
+					Role role=user.getRole();
+					if(role.getGrade()=="1") {
+						response.put("",1);
+					}
 					response.put("code",2);
 					response.put("user",user);
 				}else {
