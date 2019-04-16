@@ -52,7 +52,7 @@ public class UserController {
 	}
 
 @RequestMapping("insertuser")
-public String insertUser(@RequestBody String reqstr) {
+public JSONObject insertUser(@RequestBody String reqstr) {
 	log.info(reqstr);
 	JSONObject response=new JSONObject();
 	try {
@@ -66,11 +66,15 @@ public String insertUser(@RequestBody String reqstr) {
 		int roleid=requst.getIntValue("roleid");
 		User user=new User(userid,no,name,sex,phone,password,roleid,null);
 		boolean res=userService.insertUser(user);
-		response.put("",res);
+		if(res) {
+			response.put("user", user);
+		}else {
+		response.put("","error!");
+		}
 	}catch(Exception e) {
 		response.put("", "error!");
 	}
-	return response.toString();
+	return response;
 }
 
 }
