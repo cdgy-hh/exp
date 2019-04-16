@@ -34,8 +34,10 @@ public class UserController {
 					if(role.getGrade()=="1") {
 						response.put("",1);
 					}
+					else {
 					response.put("code",2);
 					response.put("user",user);
+					}
 				}else {
 					response.put("code",5);
 					response.put("msg","密码错误");
