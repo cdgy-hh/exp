@@ -31,7 +31,7 @@ public class UserController {
 			if(user!=null) {
 				if(password.equals(user.getPassword())) {
 					Role role=user.getRole();
-					if(role.getGrade()=="1") {
+					if(role.getGrade().equals("1")) {
 						response.put("",1);
 					}
 					else {
