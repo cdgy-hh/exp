@@ -19,11 +19,11 @@ import org.springframework.context.annotation.ComponentScan;
 @ComponentScan(basePackages ="com.hhh.exp")
 public class Application implements CommandLineRunner {
 	
-	private static Logger log=Logger.getLogger(Application.class);
+	private static Logger log=Logger.getLogger(ApplicationTest.class);
 	
 	public static void main(String[] args) {
 				
-		SpringApplication app=new SpringApplication(Application.class);
+		SpringApplication app=new SpringApplication(ApplicationTest.class);
 		app.run(args);
 	}
 

@@ -23,7 +23,7 @@
 		from role r
 		where r.roleid=#{roleid}
 	</select>
-	<insert id="insertUser" parameterType="com.hhh.exp.user">
+	<insert id="insertUser" parameterType="com.hhh.exp.user.User">
 		insert into user(userid,No,sex,phone,name,password,roleid) 
 		values(#{userid},#{No},#{sex},#{phone},#{name},#{password},#{roleid})
 	</insert>
