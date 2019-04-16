@@ -77,10 +77,24 @@ public JSONObject insertUser(@RequestBody String reqstr) {
 }
 
 @RequestMapping("deleteuser")
-public String deleteUserById(@RequestBody String reqstr) {
+public JSONObject deleteUserById(@RequestBody String reqstr) {
 	log.info(reqstr);
 	JSONObject response=new JSONObject();
-	
+	try {
+		JSONObject request=JSON.parseObject(reqstr);
+		int userid=request.getIntValue("userid");
+		int res=userService.deleteUser(userid);
+		if(res>0) {
+			response.put("code", 2);
+		}
+		else {
+			response.put("", "error!");
+		}
+	}catch(Exception e) {
+		e.printStackTrace();
+		response.put("", "error!");
+	}
+	return response;
 }
 
 }
