@@ -31,6 +31,9 @@ public class ApplicationTest {
     	userService.insertUser(user);
     }
 	
-	
+    @Test
+    public void deleteUserTest() {
+    	userService.deleteUser(2);
+    }
 	
 }

@@ -10,120 +10,113 @@ import org.springframework.web.bind.annotation.RestController;
 import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.JSONObject;
 
-
-
 @RestController
 @RequestMapping("/user/")
 public class UserController {
 	private static final Logger log = LoggerFactory.getLogger(UserController.class);
-	
+
 	@Autowired
 	private UserService userService;
-	
+
 	@RequestMapping("login")
 	public JSONObject adminlogin(@RequestBody String reqstr) {
 		log.info(reqstr);
-		JSONObject response=new JSONObject();
+		JSONObject response = new JSONObject();
 		try {
-			JSONObject requst=JSONObject.parseObject(reqstr);
+			JSONObject requst = JSONObject.parseObject(reqstr);
 			String username = requst.getString("username");
 			String password = requst.getString("password");
 			User user = userService.getUserByName(username);
-			if(user!=null) {
-				if(password.equals(user.getPassword())) {
-					response.put("code",2);
-					response.put("user",user);
+			if (user != null) {
+				if (password.equals(user.getPassword())) {
+					response.put("code", 2);
+					response.put("user", user);
+				} else {
+					response.put("code", 5);
+					response.put("msg", "密码错误");
 				}
-				else {
-					response.put("code",5);
-					response.put("msg","密码错误");
-				}
-			}else {
-				response.put("code",5);
-				response.put("msg","该用户未注册");
+			} else {
+				response.put("code", 5);
+				response.put("msg", "该用户未注册");
 			}
-		 }catch (Exception e) {
+		} catch (Exception e) {
 			e.printStackTrace();
-			response.put("code",5);
+			response.put("code", 5);
 			response.put("msg", e.getMessage());
 		}
-		
+
 		return response;
 	}
 
-@RequestMapping("insertuser")
-public JSONObject insertUser(@RequestBody String reqstr) {
-	log.info(reqstr);
-	JSONObject response=new JSONObject();
-	try {
-		JSONObject requst=JSON.parseObject(reqstr);
-		int no=requst.getIntValue("no");
-		String name=requst.getString("name");
-		String sex=requst.getString("sex");
-		String phone=requst.getString("phone");
-		String password=requst.getString("password");
-		int roleid=requst.getIntValue("roleid");
-		User user=new User(no,name,sex,phone,password,roleid,null);
-		int res=userService.insertUser(user);
-		if(res>0) {
-			response.put("user", user);
-		}else {
-		response.put("","error!");
-		}
-	}catch(Exception e) {
-		response.put("", "error!");
-	}
-	return response;
-}
-
-@RequestMapping("deleteuser")
-public JSONObject deleteUserById(@RequestBody String reqstr) {
-	log.info(reqstr);
-	JSONObject response=new JSONObject();
-	try {
-		JSONObject request=JSON.parseObject(reqstr);
-		int userid=request.getIntValue("userid");
-		int res=userService.deleteUser(userid);
-		if(res>0) {
-			response.put("code", 2);
-		}
-		else {
+	@RequestMapping("insertuser")
+	public JSONObject insertUser(@RequestBody String reqstr) {
+		log.info(reqstr);
+		JSONObject response = new JSONObject();
+		try {
+			JSONObject requst = JSON.parseObject(reqstr);
+			int no = requst.getIntValue("no");
+			String name = requst.getString("name");
+			String sex = requst.getString("sex");
+			String phone = requst.getString("phone");
+			String password = requst.getString("password");
+			int roleid = requst.getIntValue("roleid");
+			User user = new User(no, name, sex, phone, password, roleid, null);
+			int res = userService.insertUser(user);
+			if (res > 0) {
+				response.put("user", user);
+			} else {
+				response.put("", "error!");
+			}
+		} catch (Exception e) {
 			response.put("", "error!");
 		}
-	}catch(Exception e) {
-		e.printStackTrace();
-		response.put("", "error!");
+		return response;
 	}
-	return response;
-}
 
-@RequestMapping("updateuser")
-public JSONObject updateUser(@RequestBody String reqstr) {
-	log.info(reqstr);
-	JSONObject response=new JSONObject();
-	try {
-		JSONObject requst=JSON.parseObject(reqstr);
-		int userid=requst.getIntValue("userid");
-		int no=requst.getIntValue("no");
-		String name=requst.getString("name");
-		String sex=requst.getString("sex");
-		String phone=requst.getString("phone");
-		String password=requst.getString("password");
-		int roleid=requst.getIntValue("roleid");
-		User user=new User(userid,no,name,sex,phone,password,roleid,null);
-		int res=userService.updateUser(user);
-		if(res>0) {
-			response.put("", user);
-		}else {
+	@RequestMapping("deleteuser")
+	public JSONObject deleteUserById(@RequestBody String reqstr) {
+		log.info(reqstr);
+		JSONObject response = new JSONObject();
+		try {
+			JSONObject request = JSON.parseObject(reqstr);
+			int userid = request.getIntValue("userid");
+			int res = userService.deleteUser(userid);
+			if (res > 0) {
+				response.put("code", 2);
+			} else {
+				response.put("", "error!");
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
 			response.put("", "error!");
 		}
-		}catch(Exception e) {
-		e.printStackTrace();
-		response.put("", "error!");
+		return response;
 	}
-	return response;
-}
-}
-	
-	
 
+	@RequestMapping("updateuser")
+	public JSONObject updateUser(@RequestBody String reqstr) {
+		log.info(reqstr);
+		JSONObject response = new JSONObject();
+		try {
+			JSONObject requst = JSON.parseObject(reqstr);
+			int userid = requst.getIntValue("userid");
+			int no = requst.getIntValue("no");
+			String name = requst.getString("name");
+			String sex = requst.getString("sex");
+			String phone = requst.getString("phone");
+			String password = requst.getString("password");
+			int roleid = requst.getIntValue("roleid");
+			User user = new User(userid, no, name, sex, phone, password, roleid, null);
+			int res = userService.updateUser(user);
+			if (res > 0) {
+				response.put("", user);
+			} else {
+				response.put("", "error!");
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+			response.put("", "error!");
+		}
+		return response;
+	}
+}
