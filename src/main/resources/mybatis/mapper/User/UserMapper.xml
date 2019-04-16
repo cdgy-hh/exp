@@ -27,8 +27,8 @@
 		insert into user(No,sex,phone,name,password,roleid) 
 		values(#{No},#{sex},#{phone},#{name},#{password},#{roleid})
 	</insert>
-	<delete id="deleteByuserId" parameterType="com.hhh.exp.user.User">
-		delete from user u where u.userid=#{userid}
+	<delete id="deleteByUserId" parameterType="int">
+		delete from user where userid=#{userid}
 	</delete>
 	<update id="updateUserById" parameterType="com.hhh.exp.user.User">
 		update user u set

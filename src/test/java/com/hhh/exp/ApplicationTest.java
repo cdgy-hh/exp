@@ -33,7 +33,7 @@ public class ApplicationTest {
 	
     @Test
     public void deleteUserTest() {
-    	userService.deleteUser(2);
+    	userService.deleteUser(4);
     }
 	
 }
