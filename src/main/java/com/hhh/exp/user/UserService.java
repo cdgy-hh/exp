@@ -1,5 +1,7 @@
 package com.hhh.exp.user;
 
+import java.util.Map;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -20,4 +22,8 @@ public class UserService{
 		return user;
 	}
 	
+	public boolean insertUser(User user) {
+		boolean res=userDao.insertUser(user);
+		return res;
+	}
 }

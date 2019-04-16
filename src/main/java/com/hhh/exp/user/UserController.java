@@ -7,6 +7,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.JSONObject;
 
 
@@ -30,15 +31,10 @@ public class UserController {
 			User user = userService.getUserByName(username);
 			if(user!=null) {
 				if(password.equals(user.getPassword())) {
-					Role role=user.getRole();
-					if(role.getGrade().equals("1")) {
-						response.put("",1);
-					}
-					else {
 					response.put("code",2);
 					response.put("user",user);
-					}
-				}else {
+				}
+				else {
 					response.put("code",5);
 					response.put("msg","密码错误");
 				}
@@ -46,7 +42,7 @@ public class UserController {
 				response.put("code",5);
 				response.put("msg","该用户未注册");
 			}
-		}catch (Exception e) {
+		 }catch (Exception e) {
 			e.printStackTrace();
 			response.put("code",5);
 			response.put("msg", e.getMessage());
@@ -54,6 +50,30 @@ public class UserController {
 		
 		return response;
 	}
-	
+
+@RequestMapping("insertuser")
+public String insertUser(@RequestBody String reqstr) {
+	log.info(reqstr);
+	JSONObject response=new JSONObject();
+	try {
+		JSONObject requst=JSON.parseObject(reqstr);
+		int userid=requst.getIntValue("userid");
+		int no=requst.getIntValue("no");
+		String name=requst.getString("name");
+		String sex=requst.getString("sex");
+		String phone=requst.getString("phone");
+		String password=requst.getString("password");
+		int roleid=requst.getIntValue("roleid");
+		User user=new User(userid,no,name,sex,phone,password,roleid,null);
+		boolean res=userService.insertUser(user);
+		response.put("",res);
+	}catch(Exception e) {
+		response.put("", "error!");
+	}
+	return response.toString();
+}
 
 }
+	
+	
+
