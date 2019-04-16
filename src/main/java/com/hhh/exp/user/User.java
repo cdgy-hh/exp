@@ -28,6 +28,17 @@ public class User {
 		this.role = role;
 	}
 
+	public User(int no, String name, String sex, String phone, String password, int roleid, Role role) {
+		super();
+		No = no;
+		this.name = name;
+		this.sex = sex;
+		this.phone = phone;
+		this.password = password;
+		this.roleid = roleid;
+		this.role = role;
+	}
+
 	public int getUserid() {
 		return userid;
 	}

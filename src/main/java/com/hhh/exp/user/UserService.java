@@ -21,8 +21,18 @@ public class UserService{
 		return user;
 	}
 	
-	public boolean insertUser(User user) {
-		boolean res=userDao.insertUser(user);
+	public int insertUser(User user) {
+		int res=userDao.insertUser(user);
+		return res;
+	}
+	
+	public int deleteUser(int userid) {
+		int res=userDao.deleteByUserId(userid);
+		return res;
+	}
+	
+	public int updateUser(int userid) {
+		int res=userDao.updateUserById(userid);
 		return res;
 	}
 }

@@ -57,16 +57,15 @@ public JSONObject insertUser(@RequestBody String reqstr) {
 	JSONObject response=new JSONObject();
 	try {
 		JSONObject requst=JSON.parseObject(reqstr);
-		int userid=requst.getIntValue("userid");
 		int no=requst.getIntValue("no");
 		String name=requst.getString("name");
 		String sex=requst.getString("sex");
 		String phone=requst.getString("phone");
 		String password=requst.getString("password");
 		int roleid=requst.getIntValue("roleid");
-		User user=new User(userid,no,name,sex,phone,password,roleid,null);
-		boolean res=userService.insertUser(user);
-		if(res) {
+		User user=new User(no,name,sex,phone,password,roleid,null);
+		int res=userService.insertUser(user);
+		if(res>0) {
 			response.put("user", user);
 		}else {
 		response.put("","error!");
@@ -75,6 +74,13 @@ public JSONObject insertUser(@RequestBody String reqstr) {
 		response.put("", "error!");
 	}
 	return response;
+}
+
+@RequestMapping("deleteuser")
+public String deleteUserById(@RequestBody String reqstr) {
+	log.info(reqstr);
+	JSONObject response=new JSONObject();
+	
 }
 
 }

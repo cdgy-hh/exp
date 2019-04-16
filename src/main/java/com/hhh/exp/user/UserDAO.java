@@ -9,6 +9,10 @@ public interface UserDAO {
 	
 	public Role selectRoleByRoleid(int roleid);
 	
-	public boolean insertUser(User user);
+	public int insertUser(User user);
+	
+	public int deleteByUserId(int userid);
+	
+	public int updateUserById(int userid);
 		
 }
