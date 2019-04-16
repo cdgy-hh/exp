@@ -22,7 +22,7 @@ public class ApplicationTest {
     public void listDataDetail() {
     	//userid,no,name,sex,phone,password,roleid,null
     	User user=new User();
-    	user.setName("小A");
+    	user.setName("hh");
     	user.setNo(2);
     	user.setSex("女");
     	user.setPhone("19878546487");
