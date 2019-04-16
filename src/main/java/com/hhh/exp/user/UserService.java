@@ -31,8 +31,8 @@ public class UserService{
 		return res;
 	}
 	
-	public int updateUser(int userid) {
-		int res=userDao.updateUserById(userid);
+	public int updateUser(User user) {
+		int res=userDao.updateUserById(user);
 		return res;
 	}
 }

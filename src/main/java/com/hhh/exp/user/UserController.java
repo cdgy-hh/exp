@@ -97,6 +97,32 @@ public JSONObject deleteUserById(@RequestBody String reqstr) {
 	return response;
 }
 
+@RequestMapping("updateuser")
+public JSONObject updateUser(@RequestBody String reqstr) {
+	log.info(reqstr);
+	JSONObject response=new JSONObject();
+	try {
+		JSONObject requst=JSON.parseObject(reqstr);
+		int userid=requst.getIntValue("userid");
+		int no=requst.getIntValue("no");
+		String name=requst.getString("name");
+		String sex=requst.getString("sex");
+		String phone=requst.getString("phone");
+		String password=requst.getString("password");
+		int roleid=requst.getIntValue("roleid");
+		User user=new User(userid,no,name,sex,phone,password,roleid,null);
+		int res=userService.updateUser(user);
+		if(res>0) {
+			response.put("", user);
+		}else {
+			response.put("", "error!");
+		}
+		}catch(Exception e) {
+		e.printStackTrace();
+		response.put("", "error!");
+	}
+	return response;
+}
 }
 	
 	

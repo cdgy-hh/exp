@@ -13,6 +13,6 @@ public interface UserDAO {
 	
 	public int deleteByUserId(int userid);
 	
-	public int updateUserById(int userid);
+	public int updateUserById(User user);
 		
 }
