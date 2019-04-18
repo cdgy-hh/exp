@@ -1,14 +1,22 @@
 package com.hhh.exp.user;
 
 
+import java.util.ArrayList;
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+
+import com.hhh.exp.util.CacheUtil;
 
 @Service
 public class UserService{
 	
 	@Autowired
 	private UserDAO userDao;
+	
+	@Autowired
+	private CacheUtil cacheUtil;
 	
 	public User getUserByName(String name) throws Exception {
 		User user=null;
@@ -33,6 +41,19 @@ public class UserService{
 	
 	public int updateUser(User user) {
 		int res=userDao.updateUserById(user);
+		return res;
+	}
+	
+	public List<User> listUserByRoleType(String type){
+		List<User> res = new ArrayList<>();
+		List<User> temp = userDao.selectAllUser();
+		for (User user : temp) {
+			Role role = cacheUtil.getRoleById(user.getRoleid());
+			if(role.getType().equals(type)) {
+				user.setRole(role);
+				res.add(user);
+			}
+		}
 		return res;
 	}
 }

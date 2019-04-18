@@ -2,6 +2,26 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
 <mapper namespace="com.hhh.exp.user.UserDAO">
+
+	<select id="selectAllUser" resultType="com.hhh.exp.user.User">
+		select
+		u.userid,
+		u.No,
+		u.sex,
+		u.phone,
+		u.name,
+		u.password,
+		u.roleid
+		from user u
+	</select>
+
+	<select id="selectAllRole" resultType="com.hhh.exp.user.Role">
+		select
+		r.roleid,
+		r.type,
+		r.grade
+		from role r
+	</select>
  
 	<select id="selectUserByName" parameterType="java.lang.String" resultType="com.hhh.exp.user.User">
 		select

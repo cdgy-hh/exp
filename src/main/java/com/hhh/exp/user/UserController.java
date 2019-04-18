@@ -1,10 +1,13 @@
 package com.hhh.exp.user;
 
+import java.util.List;
+
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.alibaba.fastjson.JSON;
@@ -63,12 +66,14 @@ public class UserController {
 			User user = new User(no, name, sex, phone, password, roleid, null);
 			int res = userService.insertUser(user);
 			if (res > 0) {
-				response.put("user", user);
+				response.put("code", 2);
 			} else {
-				response.put("", "error!");
+				response.put("code", 5);
+				response.put("msg", "未知异常");
 			}
 		} catch (Exception e) {
-			response.put("", "error!");
+			response.put("code", 5);
+			response.put("msg", e.getMessage());
 		}
 		return response;
 	}
@@ -84,11 +89,12 @@ public class UserController {
 			if (res > 0) {
 				response.put("code", 2);
 			} else {
-				response.put("", "error!");
+				response.put("code", 5);
+				response.put("msg", "未知异常");
 			}
 		} catch (Exception e) {
-			e.printStackTrace();
-			response.put("", "error!");
+			response.put("code", 5);
+			response.put("msg", e.getMessage());
 		}
 		return response;
 	}
@@ -109,14 +115,30 @@ public class UserController {
 			User user = new User(userid, no, name, sex, phone, password, roleid, null);
 			int res = userService.updateUser(user);
 			if (res > 0) {
-				response.put("", user);
+				response.put("code", 2);
 			} else {
-				response.put("", "error!");
+				response.put("code", 5);
+				response.put("msg", "未知异常");
 			}
 		} catch (Exception e) {
-			e.printStackTrace();
-			response.put("", "error!");
+			response.put("code", 5);
+			response.put("msg", e.getMessage());
 		}
 		return response;
 	}
+	
+	@RequestMapping("listUserByRoleType")
+	public JSONObject listUserByRoleType(@RequestParam String type) {
+		JSONObject response = new JSONObject();
+		try {
+			List<User> users= userService.listUserByRoleType(type);
+			response.put("data", users);
+			response.put("code", 2);
+		} catch (Exception e) {
+			response.put("code", 5);
+			response.put("msg", e.getMessage());
+		}
+		return response;
+	}	
+	
 }
