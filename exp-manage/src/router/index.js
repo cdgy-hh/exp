@@ -17,12 +17,12 @@ export default new Router({
                 {
                     path: '/dashboard',
                     component: resolve => require(['../components/page/Dashboard.vue'], resolve),
-                    meta: { title: '系统首页' }
+                    meta: { title: '教师信心管理' }
                 },
                 {
                     path: '/student',
                     component: resolve => require(['../components/page/Student.vue'], resolve),
-                    meta: { title: '教师信息管理' }
+                    meta: { title: '学生信息管理' }
                 },
                 {
                     // 图片上传组件
