@@ -17,7 +17,7 @@ export default new Router({
                 {
                     path: '/dashboard',
                     component: resolve => require(['../components/page/Dashboard.vue'], resolve),
-                    meta: { title: '教师信心管理' }
+                    meta: { title: '教师信息管理' }
                 },
                 {
                     path: '/student',
