@@ -10,10 +10,10 @@ public class Exp_pub {
 	public String end_time;
 	public String exp_status;
 	public String url;
-	public int time;
+	public int num;
 	
 	public Exp_pub(int expid, int typeid, String title, String content, int pubid, String pub_time, String end_time,
-			String exp_status, String url, int time) {
+			String exp_status, String url, int num) {
 		super();
 		this.expid = expid;
 		this.typeid = typeid;
@@ -24,7 +24,7 @@ public class Exp_pub {
 		this.end_time = end_time;
 		this.exp_status = exp_status;
 		this.url = url;
-		this.time = time;
+		this.num = num;
 	}
 
 	public int getExpid() {
@@ -99,19 +99,19 @@ public class Exp_pub {
 		this.url = url;
 	}
 
-	public int getTime() {
-		return time;
+	public int getNum() {
+		return num;
 	}
 
-	public void setTime(int time) {
-		this.time = time;
+	public void setNum(int num) {
+		this.num = num;
 	}
 
 	@Override
 	public String toString() {
 		return "Exp_pub [expid=" + expid + ", typeid=" + typeid + ", title=" + title + ", content=" + content
 				+ ", pubid=" + pubid + ", pub_time=" + pub_time + ", end_time=" + end_time + ", exp_status="
-				+ exp_status + ", url=" + url + ", time=" + time + "]";
+				+ exp_status + ", url=" + url + ", num=" + num + "]";
 	}
 	
 	

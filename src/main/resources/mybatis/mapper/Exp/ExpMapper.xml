@@ -1,5 +1,31 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="">
-
+<mapper namespace="com.hhh.exp.exp_pub.expDao">
+	<select id="Allexp" resultType="com.hhh.exp.exp_pub.Exp_pub">
+		select e.expid,
+		e.typeid,
+		e.title,
+		e.content,
+		e.pubid,
+		e.pub_time,
+		e.end_time,
+		e.status,
+		e.url,
+		e.num from exp_pub e
+	</select>
+	<select id="OnlineExp" resultType="com.hhh.exp.exp_pub.Exp_pub">
+		select e.expid,
+		e.title,
+		e.content,
+		e.pubid,
+		e.pub_time,
+		e.end_time,
+		e.status
+		from exp_pub e
+		where e.pubid=1
+	</select>
+	<insert id="AddOnlineExp">
+		insert into exp_pub(expid,title,content,pubid,pub_time,end_time,status)
+		values(#{expid},#{title},#{content},#{pubid},#{systime},#{end_time},#{status})
+	</insert>
 </mapper>
