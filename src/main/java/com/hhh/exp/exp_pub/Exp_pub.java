@@ -11,6 +11,18 @@ public class Exp_pub {
 	public String exp_status;
 	public String url;
 	public int num;
+
+	public Exp_pub(int expid, String title, String content, int pubid, String pub_time, String end_time,
+			String exp_status) {
+		super();
+		this.expid = expid;
+		this.title = title;
+		this.content = content;
+		this.pubid = pubid;
+		this.pub_time = pub_time;
+		this.end_time = end_time;
+		this.exp_status = exp_status;
+	}
 	
 	public Exp_pub(int expid, int typeid, String title, String content, int pubid, String pub_time, String end_time,
 			String exp_status, String url, int num) {
@@ -26,6 +38,7 @@ public class Exp_pub {
 		this.url = url;
 		this.num = num;
 	}
+
 
 	public int getExpid() {
 		return expid;
