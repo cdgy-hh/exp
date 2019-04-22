@@ -8,6 +8,8 @@ import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 import org.springframework.test.context.web.WebAppConfiguration;
 
 import com.hhh.exp.Application;
+import com.hhh.exp.exp_pub.ExpService;
+import com.hhh.exp.exp_pub.Exp_pub;
 import com.hhh.exp.user.User;
 import com.hhh.exp.user.UserService;
 
@@ -18,6 +20,9 @@ public class ApplicationTest {
 	
 	@Autowired
 	private UserService userService;
+	
+	@Autowired
+	private ExpService expservice;
 	
     @Test
     public void listDataDetail() {
@@ -35,6 +40,19 @@ public class ApplicationTest {
     @Test
     public void deleteUserTest() {
     	userService.deleteUser(4);
+    }
+    
+    @Test
+    public void AddOnlineExpTest() {
+    	Exp_pub exp=new Exp_pub();
+    	exp.setContent("nihao");
+    	exp.setEnd_time("2018-09-01");
+    	exp.setEnd_time("2019-08-01");
+    	exp.setExp_status("nan");
+    	exp.setExpid(1);
+    	exp.setTitle("hello");
+    	exp.setPubid(2);
+    	expservice.AddOnlineExp(exp);
     }
 	
 }

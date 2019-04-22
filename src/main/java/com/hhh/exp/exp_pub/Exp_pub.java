@@ -11,6 +11,11 @@ public class Exp_pub {
 	public String exp_status;
 	public String url;
 	public int num;
+	
+	public Exp_pub() {
+		super();
+		// TODO Auto-generated constructor stub
+	}
 
 	public Exp_pub(int expid, String title, String content, int pubid, String pub_time, String end_time,
 			String exp_status) {
