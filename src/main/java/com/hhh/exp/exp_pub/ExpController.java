@@ -24,11 +24,11 @@ public class ExpController {
 	private ExpService expservice;
 	
 	@RequestMapping("exp_pub")
-	public JSONObject OnlineExp(@RequestBody String reqstr) {
+	public JSONObject AllExp(@RequestBody String reqstr) {
 		log.info(reqstr);
 		JSONObject response=new JSONObject();
 		try {
-			List<Exp_pub> exp_pub=expservice.OnlineExp();
+			List<Exp_pub> exp_pub=expservice.AllExp();
 			response.put("data", exp_pub);
 			response.put("code", 2);
 		}catch(Exception e) {
@@ -39,21 +39,24 @@ public class ExpController {
 		return response;
 	}
 	
-	@RequestMapping("addonlineexp") 
+	@RequestMapping("addexp") 
 	public JSONObject AddOnlineExp(@RequestBody String reqstr) {
 		log.info(reqstr);
 		JSONObject response=new JSONObject();
 		try {
 			JSONObject request=JSON.parseObject(reqstr);
 			int expid=request.getIntValue("expid");
+			int typeid=request.getIntValue("typeid");
 			String title=request.getString("title");
 			String content=request.getString("content");
 			int pubid=request.getIntValue("pubid");
 			String pub_time=request.getString("pub_time");
 			String end_time=request.getString("end_time");
 			String status=request.getString("status");
-			Exp_pub exp=new Exp_pub(expid,title,content,pubid,pub_time,end_time,status);
-			int res=expservice.AddOnlineExp(exp);
+			String url=request.getString("url");
+			int num=request.getIntValue("num");
+			Exp_pub exp=new Exp_pub(expid,typeid,title,content,pubid,pub_time,end_time,status,url,num);
+			int res=expservice.AddExp(exp);
 			if(res>0) {
 				response.put("code", 2);
 			}else {
@@ -67,21 +70,24 @@ public class ExpController {
 		return response;
 	}
 	
-	@RequestMapping("updateonlineexp")
+	@RequestMapping("updateexp")
 	public JSONObject UpdateOnlineExp(@RequestBody String reqstr) {
 		log.info(reqstr);
 		JSONObject response=new JSONObject();
 		try {
 			JSONObject request=JSON.parseObject(reqstr);
 			int expid=request.getIntValue("expid");
+			int typeid=request.getIntValue("typeid");
 			String title=request.getString("title");
 			String content=request.getString("content");
 			int pubid=request.getIntValue("pubid");
 			String pub_time=request.getString("pub_time");
 			String end_time=request.getString("end_time");
 			String status=request.getString("status");
-			Exp_pub exp=new Exp_pub(expid,title,content,pubid,pub_time,end_time,status);
-			int res=expservice.AddOnlineExp(exp);
+			String url=request.getString("url");
+			int num=request.getIntValue("num");
+			Exp_pub exp=new Exp_pub(expid,typeid,title,content,pubid,pub_time,end_time,status,url,num);
+			int res=expservice.AddExp(exp);
 			if(res>0) {
 				response.put("code", 2);
 			}else {

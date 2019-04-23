@@ -12,22 +12,22 @@ public class ExpService {
 	@Autowired
 	ExpDao expdao;
 	
-	public List<Exp_pub> OnlineExp(){
+	public List<Exp_pub> AllExp(){
 		List<Exp_pub> res=new ArrayList<>();
-		List<Exp_pub> temp=expdao.OnlineExp();
+		List<Exp_pub> temp=expdao.AllExp();
 		for(Exp_pub exp:temp) {
 			res.add(exp);
 		}
 		return res;
 	}
 	
-	public int AddOnlineExp(Exp_pub exp) {
-		int res=expdao.AddOnlineExp(exp);
+	public int AddExp(Exp_pub exp) {
+		int res=expdao.AddExp(exp);
 		return res;
 	}
 	
-	public int UpdateOnlineExp(int expid) {
-		int res=expdao.UpdateOnlineExp(expid);
+	public int UpdateExp(int expid) {
+		int res=expdao.UpdateExp(expid);
 		return res;
 	}
 }

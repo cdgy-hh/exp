@@ -1,5 +1,7 @@
 package com.hhh.exp;
 
+import java.util.List;
+
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -42,18 +44,40 @@ public class ApplicationTest {
     	userService.deleteUser(4);
     }
     
-    @Test
+   /* @Test
     public void AddOnlineExpTest() {
     	Exp_pub exp=new Exp_pub();
     	exp.setContent("nihao");
     	exp.setEnd_time("2018-09-01");
     	exp.setEnd_time("2019-08-01");
     	exp.setExp_status("nan");
-    	exp.setExpid(1);
+    	exp.setExpid(3);
     	exp.setTypeid(0);
     	exp.setTitle("hello");
     	exp.setPubid(2);
-    	expservice.AddOnlineExp(exp);
+    	exp.setUrl(null);
+    	exp.setNum(0);
+    	expservice.AddExp(exp);
     }
+    */
+	@Test
+	public void AllExpTest() {
+		List<Exp_pub> exp_pub=expservice.AllExp();
+	}
 	
+	@Test
+	public void UpdateExpTest() {
+		Exp_pub exp=new Exp_pub();
+    	exp.setContent("nihao");
+    	exp.setEnd_time("2018-09-01");
+    	exp.setEnd_time("2019-08-01");
+    	exp.setExp_status("nan");
+    	//exp.setExpid(3);
+    	exp.setTypeid(0);
+    	exp.setTitle("allen");
+    	exp.setPubid(2);
+    	exp.setUrl(null);
+    	exp.setNum(0);
+    	expservice.UpdateExp(3);
+	}
 }

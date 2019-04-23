@@ -6,9 +6,9 @@ import org.apache.ibatis.annotations.Mapper;
 
 @Mapper
 public interface ExpDao {
-    public List<Exp_pub> OnlineExp();
+    public List<Exp_pub> AllExp();
 	
-	public int AddOnlineExp(Exp_pub exp);
+	public int AddExp(Exp_pub exp);
 	
-	public int UpdateOnlineExp(int expid);
+	public int UpdateExp(int expid);
 }

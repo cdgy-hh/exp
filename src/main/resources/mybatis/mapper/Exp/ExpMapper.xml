@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.hhh.exp.exp_pub.ExpDao">
-	<select id="Allexp" resultType="com.hhh.exp.exp_pub.Exp_pub">
+	<select id="AllExp" resultType="com.hhh.exp.exp_pub.Exp_pub">
 		select e.expid,
 		e.typeid,
 		e.title,
@@ -24,17 +24,20 @@
 		from exp_pub e
 		where e.typeid=1
 	</select>
-	<insert id="AddOnlineExp" parameterType="com.hhh.exp.exp_pub.Exp_pub">
-		insert into exp_pub(expid,title,content,pubid,pub_time,end_time,exp_status,typeid)
-		values(#{expid},#{title},#{content},#{pubid},#{pub_time},#{end_time},#{exp_status},#{typeid})
+	<insert id="AddExp" parameterType="com.hhh.exp.exp_pub.Exp_pub">
+		insert into exp_pub(expid,title,content,pubid,pub_time,end_time,status,typeid,url,num)
+		values(#{expid},#{title},#{content},#{pubid},#{pub_time},#{end_time},#{status},#{typeid},#{url},#{num})
 	</insert>
-	<update id="UpdateOnlineExp" parameterType="com.hhh.exp.exp_pub.Exp_pub">
+	<update id="UpdateExp" parameterType="com.hhh.exp.exp_pub.Exp_pub">
 		update exp_pub set 
+		typeid=#{typeid},
 		title=#{title},
 		content=#{content},
 		pubid=#{pubid},
 		end_time=#{end_time},
-		status=#{status}
+		status=#{status},
+		url=#{url},
+		num=#{num}
 		where expid=#{expid}
 	</update>
 </mapper>
