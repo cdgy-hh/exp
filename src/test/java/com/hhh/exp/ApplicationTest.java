@@ -50,6 +50,7 @@ public class ApplicationTest {
     	exp.setEnd_time("2019-08-01");
     	exp.setExp_status("nan");
     	exp.setExpid(1);
+    	exp.setTypeid(0);
     	exp.setTitle("hello");
     	exp.setPubid(2);
     	expservice.AddOnlineExp(exp);

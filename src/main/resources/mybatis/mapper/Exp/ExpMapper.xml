@@ -25,8 +25,8 @@
 		where e.typeid=1
 	</select>
 	<insert id="AddOnlineExp" parameterType="com.hhh.exp.exp_pub.Exp_pub">
-		insert into exp_pub(expid,title,content,pubid,pub_time,end_time,exp_status)
-		values(#{expid},#{title},#{content},#{pubid},#{pub_time},#{end_time},#{exp_status})
+		insert into exp_pub(expid,title,content,pubid,pub_time,end_time,exp_status,typeid)
+		values(#{expid},#{title},#{content},#{pubid},#{pub_time},#{end_time},#{exp_status},#{typeid})
 	</insert>
 	<update id="UpdateOnlineExp" parameterType="com.hhh.exp.exp_pub.Exp_pub">
 		update exp_pub set 
