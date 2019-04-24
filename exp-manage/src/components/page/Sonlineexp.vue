@@ -1,27 +1,19 @@
 <template>
     <div class="table">
-        <div class="container">
-            <el-table :data="data" border class="table">
-                <el-table-column prop="title" label="实验名称" sortable width="200" align="center">
-                </el-table-column>
-                <el-table-column prop="content" label="实验内容" sortable width="460" align="center">
-                </el-table-column>
-                <el-table-column prop="pub_time" label="发布时间" sortable width="120" align="center">
-                </el-table-column>
-                <el-table-column prop="num" label="浏览量" width="80" align="center">
-                </el-table-column>
-                <el-table-column prop="status" label="状态">
-                </el-table-column>
-                <el-table-column label="操作" width="180" align="center">
-                    <template slot-scope="scope">
-                        <el-button type="text" icon="el-icon-caret-right" @click="handleSelect(scope.$index, scope.row)">观看</el-button>
-                    </template>
-                </el-table-column>
-            </el-table>
-            <div class="pagination">
-                <el-pagination background @current-change="handleCurrentChange" layout="prev, pager, next" :total="total">
-                </el-pagination>
-            </div>
+        <el-row>
+            <el-col :span="4" v-for="(element,index) in tableData">
+                <div class="grid-content bg-purple center" @click="handleSelect(index)">
+                    <video :src="element.url" height="130">
+                            您的浏览器不支持 video 标签。
+                    </video>
+                </div>
+                <h6 class="center">{{element.content}}</h6>
+            </el-col>
+        </el-row>
+        <!-- 分页 -->
+        <div class="pagination">
+            <el-pagination background @current-change="handleCurrentChange" layout="prev, pager, next" :total="total">
+            </el-pagination>
         </div>
 
         <!-- 查看弹出框 -->
@@ -90,8 +82,9 @@
                 })
 
             },
-            handleSelect(index, row) {
+            handleSelect(index) {
                 this.idx = index;
+                console.log(index)
                 const item = this.tableData[index];
                 this.video = item;
                 this.slectVisible = true;
@@ -126,9 +119,7 @@
     .table{
         width: 100%;
         font-size: 14px;
-    }
-    .red{
-        color: #ff0000;
+        background: #f9fafc;
     }
     .mr10{
         margin-right: 10px;
@@ -136,4 +127,27 @@
     .center{
         text-align: center;
     }
+
+    .el-row {
+        margin-bottom: 20px;
+    }
+    .el-col {
+        border-radius: 4px;
+        margin: 10px
+    }
+    .bg-purple-dark {
+        background: #99a9bf;
+    }
+    .bg-purple {
+        background: #d3dce6;
+    }
+    .grid-content {
+        border-radius: 4px;
+        min-height: 36px;
+    }
+    .row-bg {
+        padding: 10px 0;
+        background-color: #f9fafc;
+    }
+
 </style>
