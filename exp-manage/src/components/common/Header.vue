@@ -100,7 +100,7 @@
             }
         },
         mounted(){
-            if(document.body.clientWidth < 1000){
+            if(document.body.clientWidth < 1800){
                 this.collapseChage();
             }
         }

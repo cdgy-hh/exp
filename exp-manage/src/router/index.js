@@ -17,6 +17,11 @@ export default new Router({
                 {
                     path: '/dashboard',
                     component: resolve => require(['../components/page/Dashboard.vue'], resolve),
+                    meta: { title: '系统首页' }
+                },
+                {
+                    path: '/teacher',
+                    component: resolve => require(['../components/page/Teacher.vue'], resolve),
                     meta: { title: '教师信息管理' }
                 },
                 {
@@ -25,10 +30,14 @@ export default new Router({
                     meta: { title: '学生信息管理' }
                 },
                 {
-                    // 图片上传组件
-                    path: '/upload',
-                    component: resolve => require(['../components/page/Upload.vue'], resolve),
-                    meta: { title: '文件上传' }   
+                    path: '/tonexp',
+                    component: resolve => require(['../components/page/Tlabexp.vue'], resolve),
+                    meta: { title: '实验室实验管理' }
+                },
+                {
+                    path: '/tunberexp',
+                    component: resolve => require(['../components/page/Tonlineexp.vue'], resolve),
+                    meta: { title: '在线实验管理' }
                 },
                 {
                     // test

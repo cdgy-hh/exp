@@ -33,34 +33,34 @@
 
 <script>
     import bus from '../common/bus';
+    import Global from '../common/Global'
     export default {
         data() {
             return {
                 collapse: false,
-                items: [
-                    {
-                        icon: 'el-icon-lx-home',
-                        index: 'dashboard',
-                        title: '教师信息管理'
-                    },
-                    {
-                        icon: 'el-icon-date',
-                        index: 'student',
-                        title: '学生信息管理'
-                    },
-                ]
+                items: []
             }
         },
         computed:{
             onRoutes(){
                 return this.$route.path.replace('/','');
-            }
+            },
+            
         },
         created(){
             // 通过 Event Bus 进行组件间通信，来折叠侧边栏
             bus.$on('collapse', msg => {
                 this.collapse = msg;
             })
+            //根据权限获取侧边栏
+            let myrole = JSON.parse(localStorage.getItem("user")).role;
+            if(myrole.type=="admin"){
+                this.items=Global.adminTtems;
+            }else if(myrole.type=="teacher"){
+                 this.items=Global.teacherTtems;
+            }else if(myrole.type=="student"){
+                this.items=Global.studentTtems;
+            }
         }
     }
 </script>

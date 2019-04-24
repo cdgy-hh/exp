@@ -2,6 +2,8 @@ package com.hhh.exp.exp_pub;
 
 
 
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.List;
 
 import org.slf4j.Logger;
@@ -19,6 +21,8 @@ import com.hhh.exp.user.UserController;
 @RequestMapping("/exp/")
 public class ExpController {
 	private static final Logger log = LoggerFactory.getLogger(UserController.class);
+	
+	private SimpleDateFormat format=new SimpleDateFormat("yyyy-MM-dd");
 	
 	@Autowired
 	private ExpService expservice;
@@ -45,17 +49,16 @@ public class ExpController {
 		JSONObject response=new JSONObject();
 		try {
 			JSONObject request=JSON.parseObject(reqstr);
-			int expid=request.getIntValue("expid");
 			int typeid=request.getIntValue("typeid");
 			String title=request.getString("title");
 			String content=request.getString("content");
 			int pubid=request.getIntValue("pubid");
-			String pub_time=request.getString("pub_time");
+			String pub_time=format.format(new Date());
 			String end_time=request.getString("end_time");
 			String status=request.getString("status");
 			String url=request.getString("url");
 			int num=request.getIntValue("num");
-			Exp_pub exp=new Exp_pub(expid,typeid,title,content,pubid,pub_time,end_time,status,url,num);
+			Exp_pub exp=new Exp_pub(0,typeid,title,content,pubid,pub_time,end_time,status,url,num);
 			int res=expservice.AddExp(exp);
 			if(res>0) {
 				response.put("code", 2);
@@ -87,7 +90,7 @@ public class ExpController {
 			String url=request.getString("url");
 			int num=request.getIntValue("num");
 			Exp_pub exp=new Exp_pub(expid,typeid,title,content,pubid,pub_time,end_time,status,url,num);
-			int res=expservice.AddExp(exp);
+			int res=expservice.UpdateExp(exp);
 			if(res>0) {
 				response.put("code", 2);
 			}else {
