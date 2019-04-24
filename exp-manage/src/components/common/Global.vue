@@ -40,6 +40,11 @@ const studentTtems = [
                             index: 'dashboard',
                             title: '系统首页'
                         },
+                        {
+                            icon: 'el-icon-printer',
+                            index: 'sunberexp',
+                            title: '在线实验管理'
+                        },
                     ];
 export default{
     baseurl,

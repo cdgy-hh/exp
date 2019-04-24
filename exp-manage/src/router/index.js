@@ -40,6 +40,11 @@ export default new Router({
                     meta: { title: '在线实验管理' }
                 },
                 {
+                    path: '/sunberexp',
+                    component: resolve => require(['../components/page/Sonlineexp.vue'], resolve),
+                    meta: { title: '在线实验浏览' }
+                },
+                {
                     // test
                     path: '/test',
                     component: resolve => require(['../components/page/Test.vue'], resolve),
