@@ -34,10 +34,14 @@
 		title=#{title},
 		content=#{content},
 		pubid=#{pubid},
+		pub_time=#{pub_time},
 		end_time=#{end_time},
 		status=#{status},
 		url=#{url},
 		num=#{num}
 		where expid=#{expid}
 	</update>
+	<delete id="DeleteExp" parameterType="com.hhh.exp.exp_pub.Exp_pub">
+		delete from exp_pub where expid=#{expid}
+	</delete>
 </mapper>

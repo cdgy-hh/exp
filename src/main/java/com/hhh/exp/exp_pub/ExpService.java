@@ -26,8 +26,13 @@ public class ExpService {
 		return res;
 	}
 	
-	public int UpdateExp(int expid) {
-		int res=expdao.UpdateExp(expid);
+	public int UpdateExp(Exp_pub exp) {
+		int res=expdao.UpdateExp(exp);
+		return res;
+	}
+	
+	public int DeleteExp(int expid) {
+		int res=expdao.DeleteExp(expid);
 		return res;
 	}
 }

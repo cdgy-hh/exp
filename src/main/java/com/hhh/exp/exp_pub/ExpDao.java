@@ -10,5 +10,7 @@ public interface ExpDao {
 	
 	public int AddExp(Exp_pub exp);
 	
-	public int UpdateExp(int expid);
+	public int UpdateExp(Exp_pub exp);
+	
+	public int DeleteExp(int expid);
 }

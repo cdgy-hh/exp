@@ -99,4 +99,25 @@ public class ExpController {
 		}
 		return response;
 	}
+	
+	@RequestMapping("deleteexp")
+	public JSONObject DeleteExp(@RequestBody String reqstr) {
+		log.info(reqstr);
+		JSONObject response=new JSONObject();
+		try {
+			JSONObject request=JSON.parseObject(reqstr);
+			int expid=request.getIntValue("expid");
+			int res=expservice.DeleteExp(expid);
+			if(res>0) {
+				response.put("code", 2);
+			}else {
+				response.put("code", 5);
+			}
+			}catch(Exception e) {
+				e.printStackTrace();
+				response.put("code", 5);
+				response.put("msg", e.getMessage());
+		}
+		return response;
+	}
 }
