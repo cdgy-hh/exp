@@ -30,7 +30,12 @@ export default new Router({
                     component: resolve => require(['../components/page/Upload.vue'], resolve),
                     meta: { title: '文件上传' }   
                 },
-
+                {
+                    // test
+                    path: '/test',
+                    component: resolve => require(['../components/page/Test.vue'], resolve),
+                    meta: { title: 'Test' }   
+                },
                 {
                     path: '/404',
                     component: resolve => require(['../components/page/404.vue'], resolve),

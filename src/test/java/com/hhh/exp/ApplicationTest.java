@@ -63,6 +63,7 @@ public class ApplicationTest {
 	@Test
 	public void AllExpTest() {
 		List<Exp_pub> exp_pub=expservice.AllExp();
+		System.out.println(exp_pub);
 	}
 	
 	/*@Test
