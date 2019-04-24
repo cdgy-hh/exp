@@ -57,7 +57,7 @@
             if(myrole.type=="admin"){
                 this.items=Global.adminTtems;
             }else if(myrole.type=="teacher"){
-                 this.items=Global.teacherTtems;
+                this.items=Global.teacherTtems;
             }else if(myrole.type=="student"){
                 this.items=Global.studentTtems;
             }

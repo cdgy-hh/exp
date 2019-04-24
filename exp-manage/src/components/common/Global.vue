@@ -44,6 +44,7 @@ const studentTtems = [
 export default{
     baseurl,
     adminTtems,
-    teacherTtems
+    teacherTtems,
+    studentTtems
 }
 </script>
