@@ -1,5 +1,6 @@
-package com.hhh.exp.exp_pub;
+package com.hhh.exp.stu;
 
+import com.hhh.exp.exp_pub.Exp_pub;
 import com.hhh.exp.user.User;
 
 public class Exp_stu {
@@ -9,6 +10,13 @@ public class Exp_stu {
 	public String time; 
 	public User user;
 	public Exp_pub exp_pub;
+
+	public Exp_stu(int stuid, int expid, String time) {
+		super();
+		this.stuid = stuid;
+		this.expid = expid;
+		this.time = time;
+	}
 
 	public Exp_stu(int id, int stuid, int expid, String time, User user, Exp_pub exp_pub) {
 		super();

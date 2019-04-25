@@ -128,7 +128,7 @@
                 let startRow=10*(this.cur_page-1)+1;
                 axios.get(Global.baseurl+"/user/listUserByRoleType?type=teacher")
                     .then((response) => {
-                        var code = response.data.code;
+                        var code = response.data.code;ao
                         if(code==2){
                             this.tableData=response.data.data;
                         }else{
