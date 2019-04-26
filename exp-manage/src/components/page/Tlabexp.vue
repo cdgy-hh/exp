@@ -7,7 +7,7 @@
             <el-table :data="data" border class="table">
                 <el-table-column prop="title" label="实验名称" sortable width="200" align="center">
                 </el-table-column>
-                <el-table-column prop="content" label="实验内容" sortable width="460" align="center">
+                <el-table-column prop="content" label="实验内容" sortable  align="center">
                 </el-table-column>
                 <el-table-column prop="pub_time" label="发布时间" sortable width="120" align="center">
                 </el-table-column>

@@ -35,6 +35,16 @@ export default new Router({
                     meta: { title: '实验室实验管理' }
                 },
                 {
+                    path: '/slabexp',
+                    component: resolve => require(['../components/page/Slabexp.vue'], resolve),
+                    meta: { title: '实验选课' }
+                },
+                {
+                    path: '/sdeletelab',
+                    component: resolve => require(['../components/page/Sdeletelab.vue'], resolve),
+                    meta: { title: '已选择的' }
+                },
+                {
                     path: '/tunberexp',
                     component: resolve => require(['../components/page/Tonlineexp.vue'], resolve),
                     meta: { title: '在线实验管理' }

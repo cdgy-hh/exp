@@ -1,15 +1,27 @@
 <template>
     <div class="table">
-        <el-row>
-            <el-col :span="4" v-for="(element,index) in tableData">
+        <!-- <el-row>
+            <el-col :span="5" v-for="(element,index) in tableData" :key="element.expid">
                 <div class="grid-content bg-purple center" @click="handleSelect(index)">
                     <video :src="element.url" height="130">
                             您的浏览器不支持 video 标签。
                     </video>
                 </div>
-                <h6 class="center">{{element.content}}</h6>
+                <h6 class="center">{{element.title}}</h6>
+            </el-col>
+        </el-row> -->
+
+        <el-row>
+            <el-col :span="4" v-for="(element,index) in tableData" :key="element.expid">
+                <div class="grid-content bg-purple center" @click="handleSelect(index)">
+                    <video :src="element.url" height="200">
+                            您的浏览器不支持 video 标签。
+                    </video>
+                </div>
+                <h6 class="center">{{element.title}}</h6>
             </el-col>
         </el-row>
+
         <!-- 分页 -->
         <div class="pagination">
             <el-pagination background @current-change="handleCurrentChange" layout="prev, pager, next" :total="total">
@@ -128,26 +140,19 @@
         text-align: center;
     }
 
-    .el-row {
-        margin-bottom: 20px;
-    }
+
+
     .el-col {
         border-radius: 4px;
         margin: 10px
     }
-    .bg-purple-dark {
-        background: #99a9bf;
-    }
-    .bg-purple {
-        background: #d3dce6;
-    }
     .grid-content {
-        border-radius: 4px;
+        border-radius: 5px;
         min-height: 36px;
     }
-    .row-bg {
-        padding: 10px 0;
-        background-color: #f9fafc;
+
+    video {
+        border-radius: 5px;
     }
 
 </style>

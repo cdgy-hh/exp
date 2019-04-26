@@ -11,11 +11,8 @@ public class Exp_stu {
 	public User user;
 	public Exp_pub exp_pub;
 
-	public Exp_stu(int stuid, int expid, String time) {
+	public Exp_stu() {
 		super();
-		this.stuid = stuid;
-		this.expid = expid;
-		this.time = time;
 	}
 
 	public Exp_stu(int id, int stuid, int expid, String time, User user, Exp_pub exp_pub) {

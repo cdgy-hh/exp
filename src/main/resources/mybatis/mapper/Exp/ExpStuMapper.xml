@@ -1,17 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.hhh.exp.stu.StuDao">
-	<select id="StuExp" resultType="com.hhh.exp.stu.Exp_stu">
+	<select id="StuExp" resultType="com.hhh.exp.stu.Exp_stu" parameterType="int">
 		select s.id,
 		s.stuid,
 		s.expid,
 		s.time
-		from exp_stu s
+		from exp_stu s where s.stuid = #{stuid}
 	</select>
 	<insert id="InsertExp" parameterType="com.hhh.exp.stu.Exp_stu">
 		insert into exp_stu(stuid,expid,time) values(#{stuid},#{expid},#{time})
 	</insert>
-	<delete id="CancelExp" parameterType="com.hhh.exp.stu.Exp_stu">
+	<delete id="CancelExp" parameterType="int">
 		delete from exp_stu where id=#{id}
 	</delete>
 </mapper>

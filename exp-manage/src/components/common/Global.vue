@@ -41,6 +41,16 @@ const studentTtems = [
                             title: '系统首页'
                         },
                         {
+                            icon: 'el-icon-news',
+                            index: 'slabexp',
+                            title: '实验选课'
+                        },
+                        {
+                            icon: 'el-icon-goods',
+                            index: 'sdeletelab',
+                            title: '已选择的'
+                        },
+                        {
                             icon: 'el-icon-printer',
                             index: 'sunberexp',
                             title: '在线实验管理'
