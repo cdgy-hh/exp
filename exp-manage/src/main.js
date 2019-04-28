@@ -20,7 +20,7 @@ Vue.use(ElementUI, {
 //使用钩子函数对路由进行权限跳转
 router.beforeEach((to, from, next) => {
     let user = JSON.parse(localStorage.getItem('user'));
-    if(user==null && to.path !== '/login' && to.path !='/test' ){
+    if(user==null && to.path !== '/login' && to.path !='/register' ){
         next('/login');
     }else {
         // 简单的判断IE10及以下不进入富文本编辑器，该组件不兼容

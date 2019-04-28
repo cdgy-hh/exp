@@ -16,6 +16,9 @@
                 <div class="login-btn">
                     <el-button type="primary" @click="submitForm()">登录</el-button>
                 </div>
+                <div class="login-btn">
+                    <el-button plain @click="register()">注册</el-button>
+                </div>
             </el-form>
         </div>
     </div>
@@ -59,7 +62,11 @@
                 }else{
                     this.$message.error('亲，请输入账号！');
                 }
+            },
+            register(){
+                this.$router.push('/register');
             }
+
         }
     }
 </script>
@@ -106,4 +113,5 @@
         line-height:30px;
         color:#fff;
     }
+
 </style>
